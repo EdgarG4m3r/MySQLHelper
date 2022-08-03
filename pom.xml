@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.alviannn.sqlhelper</groupId>
-    <artifactId>SQLHelper</artifactId>
+    <groupId>com.github.alviannn.edgarg4m3r.mysqlhelper</groupId>
+    <artifactId>MySQLHelper</artifactId>
     <version>3.0.0</version>
     <packaging>jar</packaging>
 
@@ -30,8 +30,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
 
                     <fork>true</fork>
                     <encoding>UTF-8</encoding>
