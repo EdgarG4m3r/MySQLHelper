@@ -24,6 +24,8 @@ public class SQLHelper {
     @Nullable @Getter private HikariDataSource dataSource;
 
     private Connection connection;
+    private Connection primaryConnection;
+    private Connection secondaryConnection;
 
     /**
      * constructs the SQL instance
@@ -202,36 +204,50 @@ public class SQLHelper {
     }
 
     /**
-     * the SQL type class
+     * FOR FUTURE USE
+     * Failover connection
+     *
+     * Client-side failover to a secondary server.
+     * Usefull for mission critical service such as Philotes Relations Storage & Kratos Transaction Processing System.
      */
-    @AllArgsConstructor
-    @Getter
-    @Setter
-    public static class Type {
 
-        /**
-         * the default MYSQL type
-         */
-        public static final Type MYSQL = new Type("MYSQL", "jdbc:mysql://{host}:{port}{database}", "com.mysql.cj.jdbc.Driver");
+    public void setSecondaryConnection(String host, String port, String database, String username, String password) throws SQLException {
+        String url = this.formatUrl(host, port, database);
 
-        /**
-         * the type name
-         */
-        private final String name;
+        HikariConfig config = new HikariConfig();
 
-        /**
-         * the jdbc url
-         */
-        private String jdbcUrl;
-        /**
-         * the SQL class path
-         */
-        private String classPath;
+        config.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        config.setJdbcUrl(url);
+        config.setMaximumPoolSize(20);
 
-        public Type(String name) {
-            this.name = name;
-        }
+        config.setUsername(username);
+        config.setPassword(password);
 
+            // recommended config
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.addDataSourceProperty("useServerPrepStmts", "true");
+
+        secondaryConnection = new HikariDataSource(config).getConnection();
     }
+
+
+    public boolean hasSecondaryConnection() {
+        return secondaryConnection != null;
+    }
+
+    public void failover() {
+        if (secondaryConnection != null) {
+            connection = secondaryConnection;
+        }
+    }
+
+    public void failback() {
+        if (connection != null) {
+            connection = primaryConnection;
+        }
+    }
+
 
 }
