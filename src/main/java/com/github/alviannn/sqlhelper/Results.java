@@ -12,7 +12,6 @@ public class Results implements AutoCloseable {
     private final Connection connection;
     private final PreparedStatement statement;
     private final ResultSet resultSet;
-    private final boolean hikari;
 
     /**
      * constructs the SQL results
@@ -20,13 +19,11 @@ public class Results implements AutoCloseable {
      * @param connection the connection
      * @param statement  the (prepared) statement
      * @param resultSet  the result set
-     * @param hikari     true if hikari is being used, otherwise false
      */
-    public Results(Connection connection, PreparedStatement statement, ResultSet resultSet, boolean hikari) {
+    public Results(Connection connection, PreparedStatement statement, ResultSet resultSet) {
         this.connection = connection;
         this.statement = statement;
         this.resultSet = resultSet;
-        this.hikari = hikari;
     }
 
     /**
@@ -36,20 +33,11 @@ public class Results implements AutoCloseable {
     public void close() {
         try {
             resultSet.close();
-        } catch (Exception ignored) {
-        }
-
-        try {
             statement.close();
+            connection.close();
         } catch (Exception ignored) {
         }
 
-        if (hikari) {
-            try {
-                connection.close();
-            } catch (Exception ignored) {
-            }
-        }
     }
 
 }

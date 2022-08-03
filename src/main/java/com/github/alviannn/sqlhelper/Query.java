@@ -33,7 +33,7 @@ public class Query {
      */
     public void execute(Object... params) throws SQLException {
         try (Closer closer = new Closer()) {
-            Connection conn = helper.isHikari() ? closer.add(helper.getConnection()) : helper.getConnection();
+            Connection conn = closer.add(helper.getConnection());
             PreparedStatement statement = closer.add(conn.prepareStatement(sqlQuery));
 
             for (int i = 0; i < params.length; i++)
@@ -58,7 +58,7 @@ public class Query {
             statement.setObject(i + 1, params[i]);
 
         ResultSet set = statement.executeQuery();
-        return new Results(connection, statement, set, helper.isHikari());
+        return new Results(connection, statement, set);
     }
 
     /**

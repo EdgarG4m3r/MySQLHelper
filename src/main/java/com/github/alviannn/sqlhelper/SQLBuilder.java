@@ -9,8 +9,6 @@ import lombok.Getter;
 public class SQLBuilder {
 
     private String host, port, database, username, password;
-    private boolean hikari;
-    private SQLHelper.Type type;
 
     /**
      * sets the host
@@ -53,28 +51,10 @@ public class SQLBuilder {
     }
 
     /**
-     * sets the hikari
-     *
-     * @param hikari {@code true} if hikari is going to be used, otherwise {@code false}
-     */
-    public SQLBuilder setHikari(boolean hikari) {
-        this.hikari = hikari;
-        return this;
-    }
-
-    /**
-     * sets the SQL type
-     */
-    public SQLBuilder setType(SQLHelper.Type type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
      * builds the SQL instance
      */
     public SQLHelper toSQL() {
-        return new SQLHelper(host, port, database, username, password, type, hikari);
+        return new SQLHelper(host, port, database, username, password);
     }
 
 }

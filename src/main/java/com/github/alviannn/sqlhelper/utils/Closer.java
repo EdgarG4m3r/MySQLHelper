@@ -39,6 +39,7 @@ public class Closer implements AutoCloseable {
     public void close() {
         Iterator<AutoCloseable> iterator = closeableList.iterator();
 
+
         while (iterator.hasNext()) {
             AutoCloseable next = iterator.next();
 

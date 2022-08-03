@@ -42,6 +42,7 @@
                 </configuration>
             </plugin>
 
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -65,20 +66,6 @@
                             <shadedPattern>${project.groupId}.lib.hikari</shadedPattern>
                         </relocation>
 
-                        <relocation>
-                            <pattern>com.google</pattern>
-                            <shadedPattern>${project.groupId}.lib.google</shadedPattern>
-                        </relocation>
-
-                        <relocation>
-                            <pattern>google.protobuf</pattern>
-                            <shadedPattern>${project.groupId}.lib.protobuf</shadedPattern>
-                        </relocation>
-
-                        <relocation>
-                            <pattern>org.slf4j</pattern>
-                            <shadedPattern>${project.groupId}.lib.slf4j</shadedPattern>
-                        </relocation>
                     </relocations>
                 </configuration>
             </plugin>
@@ -104,41 +91,20 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- slf4j-nop -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.36</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- slf4j-api -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- Jetbrains Annotations -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>23.0.0</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- JUnit  for testing -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
