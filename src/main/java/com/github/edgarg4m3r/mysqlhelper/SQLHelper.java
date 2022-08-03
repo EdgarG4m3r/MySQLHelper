@@ -1,6 +1,6 @@
-package com.github.alviannn.sqlhelper;
+package com.github.edgarg4m3r.mysqlhelper;
 
-import com.github.alviannn.sqlhelper.utils.Closer;
+import com.github.edgarg4m3r.mysqlhelper.utils.Closer;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Map;
 import java.util.Properties;

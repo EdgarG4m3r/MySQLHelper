@@ -1,4 +1,4 @@
-package com.github.alviannn.sqlhelper;
+package com.github.edgarg4m3r.mysqlhelper;
 
 import lombok.Getter;
 

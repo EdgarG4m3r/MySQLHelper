@@ -1,6 +1,6 @@
-package com.github.alviannn.sqlhelper;
+package com.github.edgarg4m3r.mysqlhelper;
 
-import com.github.alviannn.sqlhelper.utils.Closer;
+import com.github.edgarg4m3r.mysqlhelper.utils.Closer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
