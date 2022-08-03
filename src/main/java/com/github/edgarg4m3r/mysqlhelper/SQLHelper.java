@@ -3,9 +3,7 @@ package com.github.edgarg4m3r.mysqlhelper;
 import com.github.edgarg4m3r.mysqlhelper.utils.Closer;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.HttpURLConnection;
@@ -129,7 +127,6 @@ public class SQLHelper {
 
         HikariConfig config = new HikariConfig();
 
-        config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setJdbcUrl(url);
         config.setMaximumPoolSize(20);
 
@@ -156,7 +153,6 @@ public class SQLHelper {
 
         HikariConfig sqlConfig = new HikariConfig();
 
-        sqlConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
         sqlConfig.setJdbcUrl(url);
 
         sqlConfig.setUsername(username);
@@ -217,7 +213,6 @@ public class SQLHelper {
 
         HikariConfig config = new HikariConfig();
 
-        config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setJdbcUrl(url);
         config.setMaximumPoolSize(20);
 

@@ -6,7 +6,7 @@
 
     <groupId>com.github.edgarg4m3r.mysqlhelper</groupId>
     <artifactId>MySQLHelper</artifactId>
-    <version>3.0.3</version>
+    <version>3.0.4</version>
     <packaging>jar</packaging>
 
     <build>
