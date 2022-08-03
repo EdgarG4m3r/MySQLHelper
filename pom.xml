@@ -59,15 +59,6 @@
                 <configuration>
                     <createDependencyReducedPom>false</createDependencyReducedPom>
                     <relocations>
-                        <relocation>
-                            <pattern>org.h2</pattern>
-                            <shadedPattern>${project.groupId}.lib.h2</shadedPattern>
-                        </relocation>
-
-                        <relocation>
-                            <pattern>com.mysql</pattern>
-                            <shadedPattern>${project.groupId}.lib.mysql</shadedPattern>
-                        </relocation>
 
                         <relocation>
                             <pattern>com.zaxxer.hikari</pattern>
@@ -104,25 +95,12 @@
     </repositories>
 
     <dependencies>
-        <!-- MySQL Connector -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.20</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- H2 DB -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.199</version>
-            <scope>compile</scope>
-        </dependency>
+
         <!-- HikariCP -->
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>3.4.5</version>
+            <version>5.0.1</version>
             <scope>compile</scope>
         </dependency>
 
@@ -130,14 +108,14 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
-            <version>1.7.30</version>
+            <version>1.7.36</version>
             <scope>compile</scope>
         </dependency>
         <!-- slf4j-api -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>1.7.36</version>
             <scope>compile</scope>
         </dependency>
 
@@ -145,21 +123,21 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
         <!-- Jetbrains Annotations -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>19.0.0</version>
+            <version>23.0.0</version>
             <scope>provided</scope>
         </dependency>
         <!-- JUnit  for testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
