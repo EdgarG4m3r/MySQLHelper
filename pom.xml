@@ -6,7 +6,7 @@
 
     <groupId>com.github.edgarg4m3r.mysqlhelper</groupId>
     <artifactId>MySQLHelper</artifactId>
-    <version>3.0.5</version>
+    <version>3.0.6</version>
     <packaging>jar</packaging>
 
     <build>
@@ -62,7 +62,12 @@
                     <relocations>
 
                         <relocation>
-                            <pattern>com.mysql</pattern>
+                            <pattern>mysql</pattern>
+                            <shadedPattern>${project.groupId}.lib.mysql</shadedPattern>
+                        </relocation>
+
+                        <relocation>
+                            <pattern>org.mysql</pattern>
                             <shadedPattern>${project.groupId}.lib.mysql</shadedPattern>
                         </relocation>
 
@@ -91,7 +96,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.29</version>
+            <version>8.0.30</version>
             <scope>compile</scope>
         </dependency>
 
